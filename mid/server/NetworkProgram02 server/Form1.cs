@@ -17,13 +17,13 @@ namespace NetworkProgram02_server
     public partial class Form1 : Form
     {
         TcpListener server;
-        Socket[] client;
+        Socket[] client=new Socket[2];
         Thread Th_Svr;
         Thread Th_Clt;
         Hashtable HT = new Hashtable();
         int i;
         const int port = 1234;
-        const string addr = "127.0.0.1";
+        const string ip = "127.0.0.1";
         public Form1()
         {
             InitializeComponent();
@@ -48,31 +48,27 @@ namespace NetworkProgram02_server
                 Application.Exit();
             }
         }
+
         private void Listen()
         {
-            Socket Sck = client[i];
-            int id = i;
+            int id = i-1;
             Thread th = Th_Clt;
+            //ListBox1.Items.Add(id);
             while (true)
             {
                 try
                 {
                     byte[] B = new byte[1023];
-                    int inLen = Sck.Receive(B);
+                    int inLen = client[id].Receive(B);
                     string Msg = Encoding.Default.GetString(B, 0, inLen);
-                    /* 0 是下棋 1是有人勝利
-                     * 訊息格式 0 x y #x,y是矩陣座標
-                               1 user #user 是 client 1或client 2
+                    /*
+                     * 訊息格式 x y #x,y是矩陣座標
+                               x=255,y=255 代表遊戲結束
                      */
-                    string Cmd = Msg.Substring(0, 1);
-                    for (int i = 0; i < 2; i++)
+                    for (int j = 0; j < 2; j++)
                     {
-                        if (i != id)
-                            Send(Msg,i);
-                    }
-                    if (Cmd == "1")
-                    {
-                        Application.Exit();
+                        if (j != id)
+                            Send(Msg,j);
                     }
                 }
                 catch (Exception)
@@ -83,9 +79,9 @@ namespace NetworkProgram02_server
         }
         private void Serversub()
         {
-            IPEndPoint EP = new IPEndPoint(IPAddress.Parse(addr), port);
+            IPEndPoint EP = new IPEndPoint(IPAddress.Parse(ip), port);
             server = new TcpListener(EP);
-            server.Start(2);
+            server.Start(100);
             for (i = 0; i < 2; i++)
             {
                 client[i] = server.AcceptSocket();

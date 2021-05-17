@@ -8,3 +8,13 @@ C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\Networ
 C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
 C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
 C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
