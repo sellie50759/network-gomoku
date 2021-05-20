@@ -42,10 +42,11 @@ namespace NetworkProgram02_server
             }
             catch (Exception)
             {
-                MessageBox.Show("遠端主機已關閉");
+               // MessageBox.Show("遠端主機已關閉");
                 for(int i=0;i<2;i++)
                     client[i].Close();
-                Application.Exit();
+                Th_Svr = new Thread(Serversub);
+                Th_Svr.Start();
             }
         }
 
@@ -73,15 +74,12 @@ namespace NetworkProgram02_server
                 }
                 catch (Exception)
                 {
-
+                    return;
                 }
             }
         }
         private void Serversub()
         {
-            IPEndPoint EP = new IPEndPoint(IPAddress.Parse(ip), port);
-            server = new TcpListener(EP);
-            server.Start(100);
             for (i = 0; i < 2; i++)
             {
                 client[i] = server.AcceptSocket();
@@ -95,6 +93,9 @@ namespace NetworkProgram02_server
             CheckForIllegalCrossThreadCalls = false;
             Th_Svr = new Thread(Serversub);
             Th_Svr.IsBackground = true;
+            IPEndPoint EP = new IPEndPoint(IPAddress.Parse(ip), port);
+            server = new TcpListener(EP);
+            server.Start(100);
             Th_Svr.Start();
             button1.Enabled = false;
         }

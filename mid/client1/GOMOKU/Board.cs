@@ -21,6 +21,10 @@ namespace GOMOKU
 
         private Point lastPiecetype; //落子的那個棋子點座標
         public Point Lastnode { get { return lastPiecetype; } }//唯讀 傳出 lastPiecetype
+        public static Point Returnnomatch()
+        {
+            return nomatch;
+        }
         public Board()
         {
             PArray = new piece[count, count];

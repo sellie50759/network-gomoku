@@ -37,6 +37,10 @@ namespace GOMOKU
             }
             lastPiecetype = nomatch;
         }
+        public static Point Returnnomatch()
+        {
+            return nomatch;
+        }
         public Ptype gettype(int nodedx, int nodedy)//告訴我那個位置是哪種棋子
         {
             if (PArray[nodedx, nodedy] == null)

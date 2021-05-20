@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.遊戲模式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.與AI對戰ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.雙人對戰ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.網路雙人對戰ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.網路雙人對戰ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -63,6 +65,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(736, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // 遊戲模式ToolStripMenuItem
             // 
@@ -89,6 +92,13 @@
             this.雙人對戰ToolStripMenuItem.Text = "雙人對戰";
             this.雙人對戰ToolStripMenuItem.Click += new System.EventHandler(this.雙人對戰ToolStripMenuItem_Click);
             // 
+            // 網路雙人對戰ToolStripMenuItem
+            // 
+            this.網路雙人對戰ToolStripMenuItem.Name = "網路雙人對戰ToolStripMenuItem";
+            this.網路雙人對戰ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.網路雙人對戰ToolStripMenuItem.Text = "網路雙人對戰";
+            this.網路雙人對戰ToolStripMenuItem.Click += new System.EventHandler(this.網路雙人對戰ToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -114,12 +124,9 @@
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // 網路雙人對戰ToolStripMenuItem
+            // timer1
             // 
-            this.網路雙人對戰ToolStripMenuItem.Name = "網路雙人對戰ToolStripMenuItem";
-            this.網路雙人對戰ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.網路雙人對戰ToolStripMenuItem.Text = "網路雙人對戰";
-            this.網路雙人對戰ToolStripMenuItem.Click += new System.EventHandler(this.網路雙人對戰ToolStripMenuItem_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -159,6 +166,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem 網路雙人對戰ToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

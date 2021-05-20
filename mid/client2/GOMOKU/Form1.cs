@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
+using System.Collections;
 namespace GOMOKU
 {
     public partial class Form1 : Form
@@ -16,6 +18,7 @@ namespace GOMOKU
         private Game game = new Game();
         private AI aigame = new AI();
         bool AlreadyWin;
+        Thread rec;//為了讓主程式不被Recieve函式卡住，所以用thread來執行
         const string ip = "127.0.0.1";
         const int port = 1234;
         Socket T;
@@ -23,14 +26,17 @@ namespace GOMOKU
         int gamemode = 0;//0 AI 1 雙人遊戲 2 網路雙人遊戲
         // private Board b = new Board();
         //bool flag = true; //是否是對方的回合
-        bool who = false;
+        bool issend = true;//自己送出去了沒有
+        bool who = true;
+        bool isnetwork = false;//是否是第一次點擊網路雙人對戰
+        private delegate void SafeCallDelegate(piece p);
         public Form1()
         {
             InitializeComponent();
             gamemode = 0;
             AlreadyWin = false;
             label1.Visible = false;
-
+            timer1.Start();
             //this.Controls.Add(new White(50, 35));
             //this.Controls.Add(new Black(50, 35));
         }
@@ -113,6 +119,7 @@ namespace GOMOKU
                 WinMessage(p);
             }
             else {
+                /*
                 string Msg=Recieve();
                 int x=0, y,i;
                 for(i = 0; i < Msg.Length; i++) //把訊息中的x,y提取出來
@@ -126,29 +133,62 @@ namespace GOMOKU
                 y = int.Parse(Msg.Substring(i + 1));
                 p = game.placepiece(x, y, false);
                 WinMessage(p);
-                p = game.placepiece(e.X, e.Y, true);
-                Point temp = game.GetMatrixCoordinate(e.X, e.Y);
-                Send(temp.X.ToString() + ' ' + temp.Y.ToString());
-                WinMessage(p);
+                */
+                if (issend == false)
+                {
+                    p = game.placepiece(e.X, e.Y, true);
+                    Point temp = game.GetMatrixCoordinate(e.X, e.Y);
+                    if(temp !=Board.Returnnomatch()){
+                        Send(temp.X.ToString() + ' ' + temp.Y.ToString());
+                        WinMessage(p);
+                        issend = true;
+                    }
+                }
             }
         }
         private void OppenentRound()
         {
-            piece p;
-            string Msg = Recieve();
-            int x = 0, y, i;
-            for (i = 0; i < Msg.Length; i++) //把訊息中的x,y提取出來
+            while (true)
             {
-                if (Msg[i] == ' ')
+                piece p;
+                string Msg;
+                try
                 {
-                    x = int.Parse(Msg.Substring(0, i));
-                    break;
+                    Msg = Recieve();
                 }
+                catch (Exception)
+                {
+                    return;
+                }
+                int x = 0, y, i;
+                for (i = 0; i < Msg.Length; i++) //把訊息中的x,y提取出來
+                {
+                    if (Msg[i] == ' ')
+                    {
+                        x = int.Parse(Msg.Substring(0, i));
+                        break;
+                    }
+                }
+                y = int.Parse(Msg.Substring(i + 1));
+                p = game.placepiece(x, y, false);
+                WinMessage(p);
+                issend = false;
+                Thread.Sleep(150);
+                //flag = false;
             }
-            y = int.Parse(Msg.Substring(i + 1));
-            p = game.placepiece(x, y, false);
-            WinMessage(p);
-            //flag = false;
+            ;
+        }
+        private void AddObject(piece p)
+        {
+            if (this.InvokeRequired)
+            {
+                var d = new SafeCallDelegate(AddObject);//https://docs.microsoft.com/zh-tw/dotnet/desktop/winforms/controls/how-to-make-thread-safe-calls-to-windows-forms-controls?view=netframeworkdesktop-4.8
+                this.Invoke(d, new object[] { p });
+            }
+            else
+            {
+                this.Controls.Add(p);
+            }
         }
         private void WinMessage(piece p)
         {
@@ -191,7 +231,7 @@ namespace GOMOKU
                         who = true;
                     }
                 }
-                this.Controls.Add(p);//拿到的棋子資訊就顯示在視窗
+                AddObject(p);
                 if (gamemode==0)
                 {
                     if (aigame.Winner == Ptype.BLACK)
@@ -211,12 +251,12 @@ namespace GOMOKU
                     if (game.Winner == Ptype.BLACK)
                     {
                         MessageBox.Show("黑色獲勝");
-                        reset();
+                        AlreadyWin = true;
                     }
                     else if (game.Winner == Ptype.WHITE)
                     {
                         MessageBox.Show("白色獲勝");
-                        reset();
+                        AlreadyWin = true;
                     }
                 }
             }
@@ -255,7 +295,15 @@ namespace GOMOKU
                 if (gamemode == 2)
                 {
                     T.Close();
+                    Thread.Sleep(150);//為了讓rec關閉
                     connect_server();
+                    CheckForIllegalCrossThreadCalls = false;
+                    issend = true;
+                    who = true;
+                    rec = new Thread(OppenentRound);
+                    rec.IsBackground = true;
+                    rec.Start();
+                    gamemode = 2;
                     //flag = true;
                     //OppenentRound();
                 }
@@ -279,7 +327,7 @@ namespace GOMOKU
                     //label1.Text = game.returnFive().ToString();
                 }
             }
-            else if(gamemode==1||gamemode==2)
+            else if(gamemode==1)
             {
                 if (game.CanPlace(e.X, e.Y))//判定該位置可不可以放 用換鼠標的方式提示
                 {
@@ -294,7 +342,16 @@ namespace GOMOKU
             }
             else
             {
-
+                if (game.CanPlace(e.X, e.Y)&&issend==false)//判定該位置可不可以放 用換鼠標的方式提示
+                {
+                    this.Cursor = Cursors.Hand;
+                    //label1.Text = game.returnFive().ToString();
+                }
+                else
+                {
+                    this.Cursor = Cursors.Default;
+                    //label1.Text = game.returnFive().ToString();
+                }
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -304,7 +361,6 @@ namespace GOMOKU
 
         private void 遊戲模式ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void 與AI對戰ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -322,11 +378,28 @@ namespace GOMOKU
 
         private void 網路雙人對戰ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            reset();
-            connect_server();
-            gamemode = 2;
+             reset();
+             connect_server();
+             CheckForIllegalCrossThreadCalls = false;
+            rec = new Thread(OppenentRound);
+            rec.IsBackground = true;
+            rec.Start();
+            issend = true;
+             gamemode = 2;
+            menuStrip1.Enabled = false;
             //flag = true;
             //OppenentRound();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (AlreadyWin)
+                reset();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
