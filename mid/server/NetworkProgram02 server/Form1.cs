@@ -83,6 +83,7 @@ namespace NetworkProgram02_server
             for (i = 0; i < 2; i++)
             {
                 client[i] = server.AcceptSocket();
+                Send((i + 1).ToString(), i);
                 Th_Clt = new Thread(Listen);
                 Th_Clt.IsBackground = true;
                 Th_Clt.Start();

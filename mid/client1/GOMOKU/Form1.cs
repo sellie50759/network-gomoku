@@ -22,6 +22,7 @@ namespace GOMOKU
         //Thread win;//處理敵人回合勝利時，rec關不掉的問題
         const string ip = "127.0.0.1";
         const int port = 1234;
+        string msg;
         Socket T;
         const string user="sellie";
         int gamemode = 0;//0 AI 1 雙人遊戲 2 網路雙人遊戲
@@ -60,6 +61,12 @@ namespace GOMOKU
             int inLen = T.Receive(B);
             string Msg = Encoding.Default.GetString(B, 0, inLen);
             return Msg;
+        }
+        private void ThreadRecieve()
+        {
+            byte[] B = new byte[1023];
+            int inLen = T.Receive(B);
+            msg = Encoding.Default.GetString(B, 0, inLen);
         }
         private void connect_server()
         {
@@ -302,12 +309,18 @@ namespace GOMOKU
                     T.Close();
                     Thread.Sleep(150);//為了讓rec關閉
                     connect_server();
+                    Thread temp = new Thread(ThreadRecieve);
+                    temp.IsBackground = true;
+                    temp.Start();
+                    temp.Join();
+                    if (msg == "1")
+                        issend = false;
+                    else issend = true;
                     CheckForIllegalCrossThreadCalls = false;
                     who = true;
                     rec = new Thread(OppenentRound);
                     rec.IsBackground = true;
                     rec.Start();
-                    issend = false;
                     gamemode = 2;
                     //flag = false;
                 }
@@ -385,11 +398,14 @@ namespace GOMOKU
         {
             reset();
             connect_server();
+            string Msg = Recieve();
+            if (Msg == "1")
+                issend = false;
+            else issend = true;
             CheckForIllegalCrossThreadCalls = false;
             rec = new Thread(OppenentRound);
             rec.IsBackground = true;
             rec.Start();
-            issend = false;
             gamemode = 2;
             menuStrip1.Enabled = false;
         }
