@@ -29,6 +29,7 @@ namespace GOMOKU
         // private Board b = new Board();
         bool issend = false;//自己送出去了沒有
         bool who = true;
+        bool error = false;//連線時是否發生錯誤
         //bool flag = false;//是否是對方的回合
         private delegate void SafeCallDelegate(piece p);
         public Form1()
@@ -81,6 +82,7 @@ namespace GOMOKU
                 catch (Exception)
                 {
                     MessageBox.Show("無法連上伺服器");
+                    error = true;
                     return;
                 }
         }
@@ -398,16 +400,20 @@ namespace GOMOKU
         {
             reset();
             connect_server();
-            string Msg = Recieve();
-            if (Msg == "1")
-                issend = false;
-            else issend = true;
-            CheckForIllegalCrossThreadCalls = false;
-            rec = new Thread(OppenentRound);
-            rec.IsBackground = true;
-            rec.Start();
-            gamemode = 2;
-            menuStrip1.Enabled = false;
+            if (error==false)
+            {
+                string Msg = Recieve();
+                if (Msg == "1")
+                    issend = false;
+                else issend = true;
+                CheckForIllegalCrossThreadCalls = false;
+                rec = new Thread(OppenentRound);
+                rec.IsBackground = true;
+                rec.Start();
+                gamemode = 2;
+                menuStrip1.Enabled = false;
+            }
+            else error = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
