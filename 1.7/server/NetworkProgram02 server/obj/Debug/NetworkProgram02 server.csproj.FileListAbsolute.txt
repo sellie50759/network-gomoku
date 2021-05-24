@@ -1,0 +1,50 @@
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\視窗程式設計\NetworkProgram02 server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+C:\Users\Administrator\Desktop\git\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Downloads\network-gomoku-master (2)\network-gomoku-master\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Desktop\1.6改\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe.config
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\bin\Debug\NetworkProgram02 server.pdb
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csprojAssemblyReference.cache
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Form1.resources
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02_server.Properties.Resources.resources
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.GenerateResource.cache
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.csproj.CoreCompileInputs.cache
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.exe
+F:\使用者GIGA88\Desktop\5.24\1.6\mid\server\NetworkProgram02 server\obj\Debug\NetworkProgram02 server.pdb

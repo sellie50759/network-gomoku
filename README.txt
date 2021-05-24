@@ -6,3 +6,4 @@
 1.4 version 改善大部分的缺失，程式已能正常運行
 1.5 version 改善程式無法正常reset的問題
 1.6 version 改變程式架構，改成只有單一client
+1.7 version 增加每次下棋傳送棋子座標的功能(udp實作)(小黑窗)

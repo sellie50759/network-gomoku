@@ -1,0 +1,35 @@
+private void whowin()
+        {
+            //拿到最後落子的X,Y座標
+            int centerX = board.Lastnode.X; 
+            int centerY = board.Lastnode.Y;
+            //檢查八個方向(3*3-1)，不含中心點
+            for(int Xdirection=-1; Xdirection<=1; Xdirection++)
+            {
+                for(int Ydirection = -1; Ydirection <= 1; Ydirection++)
+                {
+                    if (Xdirection == 0 && Ydirection == 0)//扣除中間的情況
+                        continue;
+
+                    int number = 1;//紀錄看到幾顆相同棋子
+
+                    while (number < 5)
+                    {
+                        int seeX = centerX + number * Xdirection;
+                        int seeY = centerY + number * Ydirection;
+    
+                        //檢查顏色是否相同 ，且數字不超過矩陣大小
+                        if (seeX < 0 || seeX >= Board.count ||
+                        seeY < 0 || seeY >= Board.count ||
+                        board.gettype(seeX, seeY) != nexttype)
+                            break;
+
+                        number++;
+                    }
+                    if (number == 5)//檢查是否看到五顆棋子
+                    {
+                        winner = nexttype;
+                    }
+                }         
+            }       
+        }
